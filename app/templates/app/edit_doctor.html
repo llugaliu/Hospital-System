@@ -1,0 +1,57 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-md-6 offset-md-3 ">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-primary text-center">Edit Doctor</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="{% url 'edit-doctor' doctor.id %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %} 
+                            <div class="row">
+                                <div class="col">
+                                <!-- Name input -->
+                                <div class="form-outline">
+                                    <label class="form-label" for="form8Example1">Name</label>                                   
+                                    <input type="text" id="form8Example1" name="name" value="{{doctor.name}}" {{form.label.name}} class="form-control" />
+                                </div>
+                                </div>
+                                <div class="col">
+                                    <label class="mb-2" for="category">Category</label>
+                                    <br>
+                                    {{form.category}}
+                                </div>
+
+                            </div>
+                            
+                            <hr />
+                            
+                            <div class="row">
+                                <div class="col">
+                                <!-- Name input -->
+                                <div class="form-outline">
+                                    <label class="form-label"  for="form8Example3">Phone</label>                                   
+                                    <input type="number" name="phone" value="{{doctor.phone}}" {{form.label.phone}} id="form8Example3" class="form-control" />
+                                </div>
+                                </div>
+                                <div class="col">
+                                <!-- Name input -->
+                                <div class="form-outline">
+                                    <label class="form-label" for="form8Example4">Image</label>
+                                    <input type="file" id="form8Example4" name="image" value="{{doctor.image}}"{{form.label.image}} class="form-control" />
+                                </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-outline mt-3 text-center">
+                                <button class="btn btn-success" class="form-control" type="submit">Edit Doctor</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

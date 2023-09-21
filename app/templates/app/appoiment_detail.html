@@ -1,0 +1,15 @@
+{% extends 'modal/basemodal.html' %}
+{% block modal-id %} id="detailModal{{appoiment.pk}}" {% endblock %}
+{% block modal-body %}
+    <div class="text-center text-danger">
+        <div class="text-dark mt-3 mb-2 ">
+            {% if deadline %}
+            <p class="text-muted">This Appoiment is not available any more</p>
+            {% else %}
+            <p class="text-muted">
+                This appoiment will start in {{appoiment.date}} and will end in {{appoiment.time}}
+            </p>
+            {% endif %}        
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-md-6 offset-md-3 ">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-primary text-center">Add Doctor</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="{% url 'add-doctor' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %} 
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-outline">
+                                            <label class="form-label" for="form8Example1">Name</label>
+                                            <input type="text" id="form8Example1" name="name" class="form-control" />
+                                        </div>
+                                </div>
+                                <div class="col">
+                                    <label class="mb-2" for="category">Category</label>
+                                        <br>
+                                        {{form.category}}
+                                    </select>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="form-label"  for="form8Example3">Phone</label>
+                                        {{form.phone}}
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="form8Example4">Image</label>
+                                        <input type="file" id="form8Example4" name="image" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-outline mt-3 text-center">
+                                <button class="btn btn-success" class="form-control" type="submit">Add Doctor</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
