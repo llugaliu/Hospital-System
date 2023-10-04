@@ -17,7 +17,6 @@
                 </thead>
                 <tbody>
                     {% for appoiment in appoiments %}
-                    {% include 'app/appoiment_detail.html' %}
                         <tr>
                             <td>
                             <div class="d-flex align-items-center">
@@ -33,7 +32,7 @@
                             <td>{{appoiment.date}}</td>
                             <td>{{appoiment.time}}</td>
                             <td>
-                                <a href="{% url 'detail-appoiment' appoiment.id %}" class="btn btn-primary btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target="#detailModal{{appoiment.pk}}">
+                                <a href="{% url 'detail-appoiment' appoiment.id %}" class="btn btn-primary btn-sm btn-rounded">
                                     View
                                 </a>
                                 <a href="{% url 'delete-appoiment' appoiment.id %}" class="btn btn-danger btn-sm btn-rounded">
