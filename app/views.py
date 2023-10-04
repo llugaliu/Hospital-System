@@ -6,8 +6,6 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.core.paginator import Paginator
 from datetime import datetime
-from datetime import datetime, timedelta
-import time
 
 
 def signup(request):
@@ -174,7 +172,7 @@ def appoiment(request):
 
 @login_required(login_url='login')
 def appoiment_detail(request, pk):
-    appoiment = Apoiment.objects.get(id=pk)
+    appoiment = Apoiment.objects.get(pk=pk)
     present = appoiment.date.now().timestamp()
     past = appoiment.time.timestamp()
     deadline = (present > past)
